@@ -1,0 +1,24 @@
+/** @format */
+* {
+	box-sizing: border-box;
+}
+
+.nav {
+	position: fixed;
+	z-index: 3;
+	height: 60px;
+	width: 100%;
+	transition: 300ms ease;
+	text-align: center;
+	top: 0;
+	left: 0;
+}
+
+.brand {
+	color: white;
+}
+
+.brand span {
+	font-family: 'Monoton', cursive;
+	font-size: 2rem;
+}
