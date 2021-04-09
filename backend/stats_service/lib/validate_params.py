@@ -24,13 +24,13 @@ def _validate_params(**kwargs):
     length = kwargs.get('length', None)
     body = kwargs.get('body', None)
 
-    if ngram and int(ngram) < 1:
+    if not ngram or int(ngram) < 1:
         raise ValidationError('ngram must be a positive number and greater than 0')
     
     if case_sensitive and not isinstance(case_sensitive, bool):
         raise ValidationError("case_sensitive must be a boolean value")
     
-    if length and int(length) < 1:
+    if not length or int(length) < 1:
         raise ValidationError('length must be a positive number and greater than 0')
     
     if not body:
