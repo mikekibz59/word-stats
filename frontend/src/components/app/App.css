@@ -1,0 +1,10 @@
+/** @format */
+
+* {
+	box-sizing: border-box;
+}
+
+.App {
+	font-family: 'Montserrat', 'sans-serif';
+  background-color: #FCF6F5FF;
+}
