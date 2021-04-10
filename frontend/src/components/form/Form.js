@@ -1,18 +1,18 @@
 /** @format */
 
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import axios from 'axios';
 import './Form.css';
+import StatsContext from '../app/StatsContext';
 
 export default function Form() {
-	const [ngram, setNgram] = useState(1);
-	const [body, setBody] = useState('');
-	const [case_sensitive, setSensitivity] = useState(false);
-	const [length, setLength] = useState(100);
+	const [ngram, setNgram] = useContext(StatsContext);
+	const [body, setBody] = useContext(StatsContext);
+	const [case_sensitive, setSensitivity] = useContext(StatsContext);
+	const [length, setLength] = useContext(StatsContext);
 	const submit = (e) => {
 		e.preventDefault();
 		let payload = { ngram, body, case_sensitive, length };
-		console.log(payload);
 		axios
 			.post('http://localhost:8000/api/stats/create_stats', payload)
 			.then((res) => {
@@ -44,7 +44,7 @@ export default function Form() {
 				onChange={(e) => setBody(e.target.value)}
 			/>{' '}
 			<br />
-      <label htmlFor='case sensitive'> case sensitive</label> <br />
+			<label htmlFor='case sensitive'> case sensitive</label> <br />
 			<input
 				className='switch'
 				type='checkbox'
