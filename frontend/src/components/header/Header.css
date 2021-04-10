@@ -12,8 +12,8 @@
 	color: #fff;
 	display: table;
 	width: 100%;
-	text-align: center;
 	text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+	font-family: 'Montserrat', 'sans-serif';
 }
 
 .hero:after {
@@ -28,26 +28,27 @@
 	z-index: -1;
 }
 
-.hero h1 {
-	font-size: 4em;
-	margin-bottom: 1rem;
-}
-.hero p {
-	font-size: 1rem;
-	max-width: 50%;
-	font-weight: 300;
-}
-
-.hero .content {
+.content {
 	display: block;
-	margin-top: 43px;
-  height: calc(100vh-43px);
-  justify-content: center;
+	margin-top: 61px;
+	height: calc(100vh-43px);
+	padding: 10rem 0rem;
 }
 
-.content div {
-	display: inline-block;
-  justify-content: center;
-  text-align: center;
-  vertical-align: middle;
+.wrapper {
+	display: flex;
+	text-align: center;
+	vertical-align: middle;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.wrapper__item > h1 {
+	font-size: 3rem;
+}
+
+.wrapper__item > p {
+	font-size: 1.5rem;
+	font-weight: 400;
 }
