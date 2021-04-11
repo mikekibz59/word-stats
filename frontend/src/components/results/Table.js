@@ -15,7 +15,6 @@ export default function Table() {
 				</tr>
 			</thead>
 			<tbody>
-				{console.log('Table', result)}
 				{Object.keys(result).map((key) => {
 					return (
 						<tr>

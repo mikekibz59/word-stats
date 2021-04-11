@@ -1,70 +1,41 @@
 /** @format */
 
-export default function ({ results }) {
+function propSeries(prop) {
+	let series = [];
+	for (let obj in prop) {
+		series.push({ name: obj, data: [prop[obj]] });
+	}
+	return series;
+}
+
+export default function (prop) {
+
 	return {
 		chart: {
-			type: 'bar',
+			type: 'column',
 		},
 		title: {
-			text: 'n-gram VS counts stats',
+			text: 'N-GRAM',
+		},
+		subtitle: {
+			text: 'Source: WordStat',
 		},
 		xAxis: {
-			categories: Object.keys(results),
-			title: {
-				text: null,
-			},
+			categories: Object.keys(prop),
+			crosshair: true,
 		},
 		yAxis: {
 			min: 0,
 			title: {
-				text: 'Counts',
-				align: 'high',
+				text: 'Count',
 			},
-			labels: {
-				overflow: 'justify',
-			},
-		},
-		tooltip: {
-			valueSuffix: ' millions',
 		},
 		plotOptions: {
-			bar: {
-				dataLabels: {
-					enabled: true,
-				},
+			column: {
+				pointPadding: 0.2,
+				borderWidth: 0,
 			},
 		},
-		legend: {
-			layout: 'vertical',
-			align: 'right',
-			verticalAlign: 'top',
-			x: -40,
-			y: 80,
-			floating: true,
-			borderWidth: 1,
-			backgroundColor: '#FFFFFF',
-			shadow: true,
-		},
-		credits: {
-			enabled: false,
-		},
-		series: [
-			{
-				name: 'Year 1800',
-				data: [107, 31, 635, 203, 2],
-			},
-			{
-				name: 'Year 1900',
-				data: [133, 156, 947, 408, 6],
-			},
-			{
-				name: 'Year 2000',
-				data: [814, 841, 3714, 727, 31],
-			},
-			{
-				name: 'Year 2016',
-				data: [1216, 1001, 4436, 738, 40],
-			},
-		],
+		series: propSeries(prop),
 	};
 }

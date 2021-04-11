@@ -15,7 +15,6 @@ export default function Form() {
 		setSensitivity,
 		length,
 		setLength,
-		result,
 		setResult,
 	} = useContext(StatsContext);
 
@@ -28,7 +27,6 @@ export default function Form() {
 				payload
 			);
 			setResult(res.data);
-			// localStorage.setItem('results', JSON.stringify(result));
 		} catch (error) {
 			console.error('Error:', error);
 		}

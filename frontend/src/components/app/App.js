@@ -37,7 +37,6 @@ function App() {
 			<div className='App'>
 				<StatsContext.Provider value={state}>
 					<Navbar setViewResult={setViewResult} />
-					{console.log(result)}
 					{Object.keys(result).length === 0 && !viewResult ? (
 						<Header />
 					) : (
