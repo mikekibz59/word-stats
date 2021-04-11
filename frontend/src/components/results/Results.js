@@ -6,7 +6,7 @@ import BarChart from '../charts/BarChart';
 import Table from './Table';
 
 export default function Header() {
-	const [context] = useState('table');
+	const [context] = useState('barchart');
 
 	return (
 		<header className='results'>
