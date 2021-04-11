@@ -1,15 +1,25 @@
 /** @format */
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
 import Navbar from '../navbar/Navbar';
 import Header from '../header/Header';
-import StatsContext from './StatsContext.js';
+import Results from '../results/Results';
+import { StatsContext } from './StatsContext.js';
+
+const getResult = () => {
+	let result = JSON.parse(localStorage.getItem('results'));
+	return result;
+};
 function App() {
 	const [ngram, setNgram] = useState(1);
 	const [body, setBody] = useState('');
 	const [case_sensitive, setSensitivity] = useState(false);
 	const [length, setLength] = useState(100);
+	const [result, setResult] = useState({});
+	const [viewResult, setViewResult] = useState(false);
+
 	const state = {
 		ngram,
 		setNgram,
@@ -19,13 +29,20 @@ function App() {
 		setSensitivity,
 		length,
 		setLength,
+		result,
+		setResult,
 	};
 	return (
 		<Router>
 			<div className='App'>
 				<StatsContext.Provider value={state}>
-					<Navbar />
-					<Header />
+					<Navbar setViewResult={setViewResult} />
+					{console.log(result)}
+					{Object.keys(result).length === 0 && !viewResult ? (
+						<Header />
+					) : (
+						<Results />
+					)}
 				</StatsContext.Provider>
 			</div>
 		</Router>

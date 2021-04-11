@@ -3,34 +3,48 @@
 import React, { useContext } from 'react';
 import axios from 'axios';
 import './Form.css';
-import StatsContext from '../app/StatsContext';
+import { StatsContext } from '../app/StatsContext';
 
 export default function Form() {
-	const [ngram, setNgram] = useContext(StatsContext);
-	const [body, setBody] = useContext(StatsContext);
-	const [case_sensitive, setSensitivity] = useContext(StatsContext);
-	const [length, setLength] = useContext(StatsContext);
-	const submit = (e) => {
-		e.preventDefault();
-		let payload = { ngram, body, case_sensitive, length };
-		axios
-			.post('http://localhost:8000/api/stats/create_stats', payload)
-			.then((res) => {
-				console.log(res);
-				console.log(res.data);
-			});
+	const {
+		ngram,
+		setNgram,
+		body,
+		setBody,
+		case_sensitive,
+		setSensitivity,
+		length,
+		setLength,
+		result,
+		setResult,
+	} = useContext(StatsContext);
+
+	const submit = async (e) => {
+    e.preventDefault();
+		try {
+			let payload = { ngram, body, case_sensitive, length };
+			const res = await axios.post(
+				'http://localhost:8000/api/stats/create_stats',
+				payload
+			);
+			setResult(res.data);
+			// localStorage.setItem('results', JSON.stringify(result));
+		} catch (error) {
+			console.error('Error:', error);
+		}
 	};
 
 	return (
 		<form className='stats_form'>
-			<label htmlFor='ngam'> ngram</label> <br />
+			<h2> Calculator</h2>
+			<label htmlFor='ngam'> NRAM</label> <br />
 			<input
 				name='ngram'
 				value={ngram}
 				onChange={(e) => setNgram(e.target.value)}
 			/>
 			<br />
-			<label htmlFor='length'> length</label> <br />
+			<label htmlFor='length'> Length</label> <br />
 			<input
 				name='length'
 				value={length}
@@ -44,13 +58,14 @@ export default function Form() {
 				onChange={(e) => setBody(e.target.value)}
 			/>{' '}
 			<br />
-			<label htmlFor='case sensitive'> case sensitive</label> <br />
-			<input
-				className='switch'
-				type='checkbox'
-				value={case_sensitive}
-				onChange={(e) => setSensitivity((prev) => !prev)}
-			/>
+			<div className='case'>
+				<label htmlFor='case sensitive'> case sensitive</label> <br />
+				<input
+					type='checkbox'
+					value={case_sensitive}
+					onChange={(e) => setSensitivity((prev) => !prev)}
+				/>
+			</div>
 			<button type='submit' onClick={submit}>
 				Send it!
 			</button>
