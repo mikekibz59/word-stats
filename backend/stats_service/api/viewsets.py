@@ -24,7 +24,7 @@ class StatsViewSet(viewsets.ViewSet):
         case_sensitive = post_params.get('case_sensitive', True)
         length = post_params.get('length', 100)
 
-        stats = calculate_ngrams(ngram=ngram, body=body,
-                                 case_sensitive=case_sensitive, length=length)
+        stats = calculate_ngrams(ngram=int(ngram), body=body,
+                                 case_sensitive=case_sensitive, length=int(length))
 
         return Response(stats, status=status.HTTP_201_CREATED)
