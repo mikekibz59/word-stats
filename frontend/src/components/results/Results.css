@@ -1,0 +1,45 @@
+/** @format */
+
+.results {
+	position: relative;
+	z-index: 1;
+	height: 100vh;
+	max-height: 1080px;
+	background-image: url(http://unsplash.it/g/1280/721);
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: center;
+	color: #fff;
+	display: table;
+	width: 100%;
+	text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.2);
+	font-family: 'Montserrat', 'sans-serif';
+}
+
+.results:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: linear-gradient(to bottom right, #28e, #e14);
+	opacity: 0.9;
+	z-index: -1;
+}
+
+.content {
+	display: block;
+	margin-top: 61px;
+	height: calc(100vh-43px);
+	padding: 10rem 0rem;
+}
+
+.wrapper {
+	display: flex;
+	text-align: center;
+	vertical-align: middle;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: center;
+}
