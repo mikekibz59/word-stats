@@ -31,7 +31,7 @@
 .content {
 	display: block;
 	margin-top: 61px;
-	height: calc(100vh-43px);
+	max-height: calc(100vh - 55px);
 	padding: 10rem 0rem;
 }
 
@@ -51,4 +51,10 @@
 .wrapper__item > p {
 	font-size: 1.5rem;
 	font-weight: 400;
+}
+
+@media only screen and (max-width: 1020px) {
+	.content {
+		max-height: inherit;
+	}
 }

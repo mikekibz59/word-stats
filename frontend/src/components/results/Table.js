@@ -17,7 +17,7 @@ export default function Table() {
 			<tbody>
 				{Object.keys(result).map((key) => {
 					return (
-						<tr>
+						<tr key={key}>
 							<td>{key}</td>
 							<td>{result[key]}</td>
 						</tr>

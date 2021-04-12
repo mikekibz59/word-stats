@@ -1,6 +1,7 @@
 /** @format */
 
 function propSeries(prop) {
+	// format response to match highcharts series format
 	let series = [];
 	for (let obj in prop) {
 		series.push({ name: obj, data: [prop[obj]] });
@@ -9,7 +10,6 @@ function propSeries(prop) {
 }
 
 export default function (prop) {
-
 	return {
 		chart: {
 			type: 'column',
@@ -23,6 +23,9 @@ export default function (prop) {
 		xAxis: {
 			categories: Object.keys(prop),
 			crosshair: true,
+			title: {
+				text: 'N-GRAM',
+			},
 		},
 		yAxis: {
 			min: 0,
