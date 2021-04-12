@@ -23,6 +23,19 @@
 	font-size: 2rem;
 }
 
+.result_link {
+	position: absolute;
+	right: 1rem;
+	top: 1rem;
+	border: none;
+	padding: 0;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1rem;
+	font-weight: bold;
+	color: white;
+	background: transparent;
+}
+
 @media only screen and (max-width: 720px) {
 	.nav {
 		z-index: 200;
@@ -30,6 +43,9 @@
 		height: 50px;
 	}
 	.brand {
+		color: black;
+	}
+	.result_link {
 		color: black;
 	}
 }
