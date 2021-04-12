@@ -5,9 +5,16 @@
 	text-align: left;
 	font-family: 'Montserrat', 'sans-serif';
 	font-size: 1rem;
+	border-radius: 10px;
+	background: rgba(255, 255, 255, 0.1);
+	padding: 1rem;
 }
 
-.stats_form label {
+.stats_form__field {
+	position: relative;
+}
+
+.stats_form__field label {
 	display: block;
 	width: 21rem;
 	font-size: 1rem;
@@ -17,26 +24,31 @@
 	font-family: 'Montserrat', 'sans-serif';
 }
 
-.stats_form input {
-	background: rgba(255, 255, 255, 0.1);
+.stats_form__field input {
+	background: transparent;
+	padding: 10px 0;
 	border: none;
-	font-size: 14px;
-	height: auto;
-	margin: 0;
+	border-bottom: 1px solid #fff;
+	outline: none;
+	font-size: 16px;
+	margin-bottom: 30px;
 	padding: 15px;
 	width: 100%;
-	color: white;
-	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
-	/* margin-bottom: 30px; */
+	color: #fff;
 }
 
-.stats_form textarea {
+.stats_form__field textarea {
 	background-color: rgba(255, 255, 255, 0.1);
 	outline: none;
 	border: none;
 	width: 100%;
 	height: 4rem;
-  color: white;
+	color: white;
+	border-bottom: 1px solid #fff;
+}
+
+#stats_form__field__checkbox {
+	width: 20px;
 }
 
 .stats_form h2 {
@@ -52,4 +64,21 @@
 
 .case input[type='checkbox'] {
 	display: inline-block;
+}
+
+button[type='submit'] {
+	background: transparent;
+	color: white;
+	border-radius: 10px;
+	padding: 0.5rem 1rem;
+	outline: none;
+	width: 100%;
+	border: 1px solid white;
+	font-family: 'Montserrat', 'sans-serif';
+	font-weight: bold;
+}
+
+.error{
+	color: purple;
+	font-weight: bold;
 }

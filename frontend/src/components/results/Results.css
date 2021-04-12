@@ -28,18 +28,29 @@
 	z-index: -1;
 }
 
-.content {
+.results__content {
 	display: block;
-	margin-top: 61px;
-	height: calc(100vh-43px);
-	padding: 10rem 0rem;
+	height: auto;
+	text-align: center;
+	margin-top: 60px;
+	padding: 2rem;
 }
 
-.wrapper {
-	display: flex;
+.results__wrapper {
+	display: block;
 	text-align: center;
-	vertical-align: middle;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.tab_switcher {
+	display: inline;
+}
+.tab_switcher__content span {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+span .active {
+	border-bottom: 3px solid white;
 }
