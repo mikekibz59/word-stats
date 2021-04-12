@@ -1,14 +1,18 @@
 /** @format */
 
 .styled-table {
-	border-collapse: collapse;
 	margin: 25px 0;
 	font-size: 0.9em;
 	font-family: sans-serif;
 	width: 100%;
+	max-height: 400px;
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
+.table_item{
+	max-height: 400px;
+	overflow-y: scroll;
+}
 .styled-table thead tr {
 	background-color: rgba(255, 255, 255, 0.1);
 	color: #ffffff;

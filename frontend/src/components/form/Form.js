@@ -29,6 +29,7 @@ export default function Form() {
 		length,
 		setLength,
 		setResult,
+		setViewResult,
 	} = useContext(StatsContext);
 
 	const submit = async (e) => {
@@ -38,6 +39,7 @@ export default function Form() {
 			const res = await _postRequest(payload);
 			setResult(res.data);
 			setError(null);
+			setViewResult(true)
 			toast.success('results calucated successfuly');
 		} catch (error) {
 			let error_msg = error.response.data.message;
