@@ -35,7 +35,7 @@ export default function Header() {
 				</span>
 				<div className='results__wrapper'>
 					{context === 'table' ? (
-						<div className='results__wrapper__item'>
+						<div className='results__wrapper__item table_item'>
 							<Table />
 						</div>
 					) : (

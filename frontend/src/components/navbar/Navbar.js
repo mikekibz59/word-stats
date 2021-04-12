@@ -5,47 +5,44 @@ import './Navbar.css';
 import { StatsContext } from '../app/StatsContext';
 import { isEmpty } from 'lodash';
 
-const ChangeView = ({ result, viewResult, setViewResult }) => {
-	const result_ = isEmpty(result);
-	console.log('result', result_);
-	console.log('viewresult', viewResult)
-	if (!result_ || !viewResult) {
+const ResultLink = ({ result, setViewResult, viewResult }) => {
+	if (isEmpty(result)) {
+		return '';
+	}
+	if (viewResult) {
 		return (
-			<div
-				className='action_btn'
-				onClick={() => {
-					setViewResult(true);
-				}}>
-				view results
-			</div>
-		);
-	} else if (!result_ && viewResult) {
-		return (
-			<div
-				className='action_btn'
+			<button
+				className='result_link'
 				onClick={() => {
 					setViewResult(false);
 				}}>
-				back
-			</div>
+				{' '}
+				Back
+			</button>
 		);
 	}
-	else{
-		return ''
-	}
+	return (
+		<button
+			className='result_link'
+			onClick={() => {
+				setViewResult(true);
+			}}>
+			{' '}
+			view results
+		</button>
+	);
 };
 export default function Navbar() {
-	const { result, viewResult, setViewResult } = useContext(StatsContext);
-	console.log(result);
+	const { setViewResult, result, viewResult } = useContext(StatsContext);
 	return (
 		<nav className='nav' id='menu'>
 			<div className='wrap'>
 				<div className='brand'>
-					<span>Stats</span>
-					<ChangeView
+					<span onClick={() => setViewResult(false)}>Stats</span>
+					<ResultLink
 						result={result}
-						viewResult={viewResult}
 						setViewResult={setViewResult}
+						viewResult={viewResult}
 					/>
 				</div>
 			</div>

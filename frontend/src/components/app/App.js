@@ -8,7 +8,17 @@ import Navbar from '../navbar/Navbar';
 import Header from '../header/Header';
 import Results from '../results/Results';
 import { StatsContext } from './StatsContext.js';
+import { isEmpty } from 'lodash';
 
+const Content = ({ viewResult, result }) => {
+	if (isEmpty(result)) {
+		return <Header />;
+	}
+	if (viewResult) {
+		return <Results />;
+	}
+	return <Header />;
+};
 function App() {
 	const [ngram, setNgram] = useState(1);
 	const [body, setBody] = useState('');
@@ -29,17 +39,13 @@ function App() {
 		result,
 		setResult,
 		viewResult,
-		setViewResult
+		setViewResult,
 	};
 	return (
 		<div className='App'>
 			<StatsContext.Provider value={state}>
 				<Navbar />
-				{Object.keys(result).length === 0 && !viewResult ? (
-					<Header />
-				) : (
-					<Results />
-				)}
+				<Content result={result} viewResult={viewResult} />
 				<ToastContainer />
 			</StatsContext.Provider>
 		</div>
