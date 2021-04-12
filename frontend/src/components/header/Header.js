@@ -12,8 +12,8 @@ export default function Header() {
 					<div className='wrapper__item'>
 						<h1>WordStats calculator</h1>
 						<p>
-							Get specialized statistic on the text that type <br />
-							exactly the same way a machine may understand
+							Get specialized statistics on the text that <br />
+							you type exactly the same way a machine understands
 						</p>
 					</div>
 					<div className='wrapper__item'>
