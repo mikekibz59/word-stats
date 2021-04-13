@@ -1,9 +1,9 @@
 <!-- @format -->
 
-#Wordstats
+# Wordstats
 This is a repo to generate n-grams from a sequence of words or characters, group them by their counts and visulalize them through a table or barchart.
 
-##About this repo
+## About this repo
 This repo consist of two major apps. The `frontend` and the `backend`.
 The front-end is build on `react.js` while the back-end is built on `django`
 The front-end holds the client-side application ie the html code etc which the user/client will see when they visit this application.
